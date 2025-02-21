@@ -1,0 +1,36 @@
+#d1{
+    font-family:Kristen ITC;
+    text-align:center;
+    font-size:90px;
+    font-weight:500;
+    word-spacing:40px;
+    text-decoration-line:underline;
+
+    text-decoration-style:dotted;
+    color:navy;
+    background-color:plum;
+    }
+    a:-webkit-any-link {
+        color: -webkit-link;
+        cursor: pointer;
+        font-size: 30px;
+        color:black;
+        background-color: gray;
+    }
+
+    .c1{color:navy;
+    text-align:center;
+    font-size:30px;
+    font-family:Kristen ITC;
+    background-color:honeydew;
+    font-weight:lighter;
+    }
+    .d2{
+    font-family:Kristen ITC;
+    text-align:center;
+    font-size:20px;
+    background-color:honeydew;
+    
+    
+    
+    }

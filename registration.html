@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --myfont: 'Mulish', sans-serif;
+            --my-btn-font: 'Montserrat', sans-serif;
+            --lg-lightcolor: linear-gradient(to left, rgba(116, 235, 213, 0.6), rgba(226, 137, 234, 0.6));
+            --lg-color: linear-gradient(to left, #eb80ef, #f0a7f7);
+        }
+
+        body {
+            background-image: url('webr.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: var(--myfont);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            width: 100vw;
+        }
+
+        .container {
+            background-color: rgb(248, 205, 255);
+            border-radius: 10px;
+            box-shadow: 0 2.8px 2.2px rgba(227, 141, 216, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px rgb(0, 0, 0, 0.056);
+            overflow: hidden;
+            width: calc(100vw - 65vw);
+            max-width: 100%;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            background-color: #c86eef;
+            padding: 30px 0;
+        }
+
+        .header h2 {
+            color: #543357;
+            font-family: var(--my-btn-font);
+            font-size: 24px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .form {
+            padding: 30px;
+        }
+
+        .form-control {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .form-control label {
+            margin-left: 25px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .form-control input {
+            margin-left: 25px;
+            margin-bottom: -35px;
+            width: 85%;
+            border: 2px solid #f0f0f0;
+            border-radius: 5px;
+            display: block;
+            font-family: var(--myfont);
+            font-size: 14px;
+            padding: 12px;
+        }
+
+        .form-control input:focus {
+            outline: 0;
+            border-color: #777;
+        }
+
+        #btn {
+            background: var(--lg-color);
+            border-radius: 6px;
+            border: none;
+            outline: none;
+            color: #381b39;
+            display: block;
+            font-family: var(--my-btn-font);
+            font-size: 16px;
+            padding: 15px 0;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            width: 80%;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 1s ease;
+        }
+
+        .form .btn:hover {
+            background: linear-gradient(to right, #ce4bfa, #eabdfe);
+        }
+
+        @media(max-width:998px) {
+            .container {
+                width: calc(100vw - 35vw);
+                max-width: 100%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Register Here</h2>
+        </div>
+        <form id="registrationForm">
+            <div class="form-control">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required><br><br>
+            </div>
+            <div class="form-control">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required><br><br>
+            </div>
+            <div class="form-control">
+                <label for="password">Password:</label>
+                <input type="password" id="password" required><br><br>
+            </div>
+            <div class="form-control">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" required><br><br>
+            </div>
+            <div class="form-control">
+                <label for="address">Address:</label>
+                <input type="text" id="address" required><br><br>
+            </div>
+            <div class="form-control">
+                <label for="mobileNumber">Mobile Number:</label>
+                <input type="tel" id="mobileNumber" required><br><br>
+            </div>
+            <center><button type="submit" id="btn">Register</button></center>
+            <center> Already an user? <br />
+                <a href="loginpage.html" id="login"> Login here </a>
+            </center>
+    </div>
+    </form>
+
+    <script>
+        const form = document.getElementById('registrationForm');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+            let username = document.getElementById('username').value;
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            let confirmPassword = document.getElementById('confirmPassword').value;
+            let address = document.getElementById('address').value;
+            let mobileNumber = document.getElementById('mobileNumber').value;
+
+            if (!username || username.length < 3) {
+                alert('Please enter a valid username (minimum 3 characters)');
+                return;
+            }
+
+            // Validate email format
+            // Validate password criteria
+            // Confirm password matches
+            // Validate mobile number format
+            // more email validate
+            const isEmail = (emailVal) => {
+                var atSymbol = emailVal.IndexOf("@");
+                if (atSymbol < 1) return false;
+                var dot = emailVal.lastindexOf(".");
+                if (dot <= atSymbol + 2) return false;
+                if (dot === emailVal.length - 1) return false;
+                return true;
+            }
+            // define the validate function
+
+            const validate = () => {
+                const usernameVal = username.value.trim();
+                const emailVal = email.value.trim();
+                const mobileVal = mobile.value.trim();
+                const passwordVal = password.value.trim();
+                const cpasswordVal = cpassword.value.trim();
+
+                // validate username
+                if (usernameVal === "") {
+                    setErrorMsg(username, "Username can not be empty");
+                } else if (usernameVal.length <= 2) {
+                    setErrorMsg(username, "Username min 3 character");
+                } else {
+                    setSuccessMsg(username);
+                }
+
+                //validate email
+                if (emailVal === "") {
+                    setErrorMsg(email, "Email can not be empty");
+                } else if (!isEmail(emailVal)) {
+                    setErrorMsg(email, "Not a valid email");
+                } else {
+                    setSuccessMsg(email);
+                }
+                //validate mobile
+                if (mobileVal === "") {
+                    setErrorMsg(mobile, "Mobile number can't be empty");
+                } else if (mobileVal.length != 10) {
+                    setErrorMsg(mobile, "Enter a Valid mobile number");
+                } else {
+                    setSuccessMsg(mobile);
+                }
+                //validate password and confirm password
+                if (passwordVal === "" || cpasswordVal == "") {
+                    setErrorMsg(password, "Both Password fields are  required");
+                } else if (passwordVal !== cpassword) {
+                    setErrorMsg(cpassword, "Password does not match");
+                } else {
+                    setSuccessMsg(password);
+                }
+                function setErrorMsg(input, errormsgs) {
+                    const formControl = input.parentElement;
+                    const small = formControl.querySelector('small');
+                    formControl.className = "form-control error";
+                    small.innerText = errormsgs;
+                }
+            }
+
+            alert('Registration successful!');
+            form.reset(); // Clear form fields
+        });
+    </script>
+</body>
+
+</html>
